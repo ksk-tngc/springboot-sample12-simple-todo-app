@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Simple ToDo App</title>
+</head>
+
+<body>
+  <form th:action="@{/}" method="post" th:object="${todoForm}">
+    <!-- ToDo入力エリア -->
+    <section class="section-wrapper input-section">
+      <input type="text" placeholder="ToDoを入力" th:field="*{todoText}"
+        class="common__input-text input-section__input-text">
+      <button type="submit" name="add" class="common__button">追加</button>
+    </section>
+
+    <!-- メッセージ表示エリア -->
+    <section class="section-wrapper message-section" th:if="${#fields.hasErrors('todoText')}">
+      <p class="message-section__message-text" th:errors="*{todoText}"></p>
+    </section>
+
+    <!-- 未完了のToDoエリア -->
+    <section class="section-wrapper incomplete-section">
+      <h1 class="common__section-title">未完了のToDo</h1>
+      <ul>
+        <li class="common__list-row" th:each="todo : ${incompleteTodos}">
+          <span class="common__list-text" th:text="${todo.todoText}"></span>
+          <button type="submit" name="complete" th:value="${todo.id}" class="common__button">完了</button>
+          <button type="submit" name="delete" th:value="${todo.id}" class="common__button">削除</button>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 完了したToDoエリア -->
+    <section class="section-wrapper complete-section">
+      <h1 class="common__section-title">完了したToDo</h1>
+      <ul>
+        <li class="common__list-row" th:each="todo : ${completeTodos}">
+          <span class="common__list-text" th:text="${todo.todoText}"></span>
+          <button type="submit" name="back" th:value="${todo.id}" class="common__button">戻す</button>
+        </li>
+      </ul>
+    </section>
+
+  </form>
+</body>
+
+</html>

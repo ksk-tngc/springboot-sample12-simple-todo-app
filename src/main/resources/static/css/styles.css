@@ -1,0 +1,78 @@
+/* ----- 共通スタイル ----- */
+.common__input-text {
+  border-radius: 16px;
+  border: solid 1px;
+  padding: 6px 16px;
+}
+
+.common__button {
+  border-radius: 16px;
+  border: solid 1px;
+  padding: 6px 16px;
+}
+
+.common__button:hover {
+  cursor: pointer;
+}
+
+.common__button:active {
+  background-color: #ddd;
+}
+
+.common__section-title {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+}
+
+.common__list-row {
+  margin-bottom: 4px;
+}
+
+.common__list-text {
+  margin-right: 10px;
+}
+
+/* ----- エリア共通 ----- */
+.section-wrapper {
+  margin: 8px;
+  width: 400px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* ----- メッセージ表示エリア ----- */
+.message-section {
+  background-color: mistyrose;
+  color: red;
+}
+
+.message-section__message-text {
+  margin: 0 auto;
+  padding: 5px 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ----- ToDo入力エリア ----- */
+.input-section {
+  background-color: lightblue;
+  padding: 13px 8px;
+}
+
+.input-section__input-text {
+  margin-left: 6px;
+  margin-right: 5px;
+}
+
+/* ----- 未完了のToDoエリア ----- */
+.incomplete-section {
+  background-color: wheat;
+  min-height: 200px;
+}
+
+/* ----- 完了したToDoエリア ----- */
+.complete-section {
+  background-color: lightgrey;
+  min-height: 200px;
+}
